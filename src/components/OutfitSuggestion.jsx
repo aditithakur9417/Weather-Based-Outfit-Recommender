@@ -1,6 +1,7 @@
 import React from 'react';
 import { useWeatherContext } from '../context/WeatherContext';
 import { getOutfitSuggestion } from '../utils/getOutfitSuggestion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const OutfitSuggestion = () => {
   const { currentWeather } = useWeatherContext();
@@ -10,10 +11,19 @@ const OutfitSuggestion = () => {
   const suggestion = getOutfitSuggestion(currentWeather);
 
   return (
-    <div className="outfit-suggestion">
-      <h3>👕 Outfit Suggestion</h3>
-      <p>{suggestion}</p>
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={suggestion}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
+        transition={{ duration: 0.4 }}
+        className="outfit-suggestion"
+      >
+        <h3>👕 Outfit Suggestion</h3>
+        <p>{suggestion}</p>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
