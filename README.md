@@ -14,7 +14,9 @@ A responsive web app that lets users search for weather information by city name
 
 2. **Install dependencies:**
 
-    ```npm install
+    ```bash
+    npm install
+    ```
 
 3. **Running the App Locally:**
 
