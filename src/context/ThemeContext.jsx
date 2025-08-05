@@ -4,21 +4,24 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  // Initialize theme state based on localStorage value
+  // Initialize theme state based on sessionStorage value
   const [dark, setDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
+    const savedTheme = sessionStorage.getItem('theme');
+    if (savedTheme) return savedTheme === 'dark';
+    return true; // default to dark
   });
+  
 
   // Toggle between dark and light theme
   const toggleTheme = () => {
     setDark(prev => !prev);
   };
 
-  // Update HTML attribute and localStorage whenever theme changes
+  // Update HTML attribute and sessionStorage whenever theme changes
   useEffect(() => {
     const theme = dark ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme); 
-    localStorage.setItem('theme', theme); 
+    sessionStorage.setItem('theme', theme); 
   }, [dark]);
 
   return (
