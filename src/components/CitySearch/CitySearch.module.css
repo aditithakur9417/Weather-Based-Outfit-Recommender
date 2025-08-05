@@ -58,9 +58,9 @@
   cursor: pointer;
 }
 
-.suggestionsDropdown li:hover {
+/* .suggestionsDropdown li:hover {
   background-color: var(--hover-bg, #f0f0f0);
-}
+} */
 
 .errorText {
   color: red;
