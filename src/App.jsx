@@ -16,9 +16,14 @@ function App() {
       <WeatherProvider>
         <MainLayout>
           <CitySearch />
-          <WeatherCard />
-          <OutfitSuggestion />
-          <SearchHistory />
+          <div className="container">
+            <div className="cards-wrapper">
+              <WeatherCard />
+              <OutfitSuggestion />
+            </div>
+
+            <SearchHistory />
+          </div>
         </MainLayout>
       </WeatherProvider>
     </ThemeProvider>

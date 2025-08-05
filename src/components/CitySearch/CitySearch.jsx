@@ -27,7 +27,7 @@ const CitySearch = () => {
       setCity(''); // Clear input after successful fetch
       setShowSuggestions(false); // Hide suggestions dropdown
     } catch (err) {
-      setError('City not found or API error'); // Show user-friendly error message
+      setError('City not found, please search for another.'); // Show user-friendly error message
     }
   };
 
@@ -42,7 +42,7 @@ const CitySearch = () => {
   const handleSelectSuggestion = (selected) => {
     setCity(selected);
     setShowSuggestions(false);
-    fetchWeather(selected);
+    // fetchWeather(selected);
   };
 
   // Filter the city suggestions list based on debounced input

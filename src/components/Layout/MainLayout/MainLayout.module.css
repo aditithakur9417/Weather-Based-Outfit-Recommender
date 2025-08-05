@@ -1,5 +1,4 @@
 .appWrapper {
-  min-height: 100vh;
   background: var(--bg-color);
   color: var(--text-color);
 }
@@ -8,4 +7,9 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+}
+@media (max-width: 450px) {
+  .mainContent {
+    padding: 0 2rem;
+  }
 }
