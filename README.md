@@ -14,7 +14,7 @@ A responsive web app that lets users search for weather information by city name
 
 2. **Install dependencies:**
 
-    npm install
+    ```npm install
 
 3. **Running the App Locally:**
 
@@ -41,6 +41,9 @@ A responsive web app that lets users search for weather information by city name
 - **Type Safety**: Refactor the codebase to use TypeScript for improved type safety and developer experience.
 
 ### Folder Structure
+### Folder Structure
+
+```plaintext
 src/
 └── components/
     ├── Layout/
@@ -61,3 +64,4 @@ src/
     └── SearchHistory/
         ├── SearchHistory.jsx
         └── SearchHistory.module.css
+```
