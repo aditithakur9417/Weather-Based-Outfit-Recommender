@@ -1,6 +1,7 @@
 import React from 'react';
-import { useWeatherContext } from '../context/WeatherContext';
+import { useWeatherContext } from '../../context/WeatherContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from './WeatherCard.module.css'; // ✅ Import CSS Module
 
 const WeatherCard = () => {
   const { currentWeather } = useWeatherContext();
@@ -17,7 +18,7 @@ const WeatherCard = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.4 }}
-        className="weather-card"
+        className={styles.card} // ✅ Use scoped class
       >
         <h2>{location.name}, {location.country}</h2>
         <p><strong>Temperature:</strong> {current.temp_c} °C</p>

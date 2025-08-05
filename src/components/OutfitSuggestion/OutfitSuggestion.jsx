@@ -1,7 +1,8 @@
 import React from 'react';
-import { useWeatherContext } from '../context/WeatherContext';
-import { getOutfitSuggestion } from '../utils/getOutfitSuggestion';
+import { useWeatherContext } from '../../context/WeatherContext'; 
+import { getOutfitSuggestion } from '../../utils/getOutfitSuggestion';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from './OutfitSuggestion.module.css';
 
 const OutfitSuggestion = () => {
   const { currentWeather } = useWeatherContext();
@@ -18,7 +19,7 @@ const OutfitSuggestion = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.4 }}
-        className="outfit-suggestion"
+        className={styles.outfitSuggestion}
       >
         <h3>👕 Outfit Suggestion</h3>
         <p>{suggestion}</p>

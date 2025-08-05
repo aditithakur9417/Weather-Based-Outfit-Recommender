@@ -1,0 +1,11 @@
+.appWrapper {
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.mainContent {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
