@@ -1,6 +1,11 @@
 export const cities = [
-    "New York", "London", "Delhi", "Paris", "Tokyo",
-    "Berlin", "Mumbai", "Beijing", "Sydney", "Toronto",
-    "Los Angeles", "Cairo", "Dubai", "Singapore", "Rome",
+    // 🇮🇳 Major Indian Cities
+    "Delhi", "Mumbai", "Bengaluru", "Chennai", "Kolkata",
+    "Hyderabad", "Pune", "Ahmedabad", "Jaipur", "Lucknow",
+  
+    // 🌍 Global Cities
+    "New York", "London", "Paris", "Tokyo", "Berlin",
+    "Beijing", "Sydney", "Toronto", "Los Angeles", "Dubai",
+    "Singapore", "Cairo", "Rome"
   ];
   

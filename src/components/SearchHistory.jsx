@@ -1,8 +1,9 @@
 import React from 'react';
 import { useWeatherContext } from '../context/WeatherContext';
+import { motion } from 'framer-motion';
 import axios from 'axios';
 
-const API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY'; // Replace before deployment
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const SearchHistory = () => {
     const { history, updateWeather } = useWeatherContext();
@@ -10,10 +11,12 @@ const SearchHistory = () => {
     const handleCityClick = async (city) => {
         try {
             const res = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+                `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`
             );
-            updateWeather(res.data, city);
+
+            updateWeather(res.data);
         } catch (err) {
+            console.error(err);
             alert("Failed to fetch weather for this city.");
         }
     };
@@ -33,7 +36,6 @@ const SearchHistory = () => {
                         >
                             {city}
                         </motion.button>
-
                     </li>
                 ))}
             </ul>

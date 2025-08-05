@@ -1,17 +1,19 @@
 export const getOutfitSuggestion = (weather) => {
-    const condition = weather.weather[0].main;
-    const temp = weather.main.temp;
+    if (!weather || !weather.current || !weather.current.condition) return "Weather data unavailable";
   
-    if (condition.toLowerCase().includes("rain")) {
-      return "Take an umbrella ☔";
-    } else if (temp < 15) {
-      return "Wear a warm jacket 🧥";
-    } else if (condition.toLowerCase().includes("sun")) {
-      return "Sunglasses recommended 😎";
-    } else if (temp > 30) {
-      return "Wear light clothing 👕";
+    const condition = weather.current.condition.text.toLowerCase();
+    const temp = weather.current.temp_c;
+  
+    if (condition.includes("rain")) {
+      return "Carry an umbrella or wear a waterproof jacket.";
+    } else if (condition.includes("snow")) {
+      return "Wear warm clothes and snow boots.";
+    } else if (temp < 10) {
+      return "Wear a heavy jacket and layer up.";
+    } else if (temp >= 10 && temp <= 20) {
+      return "A light jacket or sweater should be fine.";
     } else {
-      return "Dress comfortably!";
+      return "T-shirt and jeans weather!";
     }
   };
   

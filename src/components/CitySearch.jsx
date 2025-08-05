@@ -4,7 +4,7 @@ import { useWeatherContext } from '../context/WeatherContext';
 import { cities } from '../utils/cityList';
 import useDebounce from '../hooks/useDebounce';
 
-const API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY';
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 const CitySearch = () => {
   const [city, setCity] = useState('');
@@ -18,15 +18,17 @@ const CitySearch = () => {
     try {
       setError('');
       const res = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
+        `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${encodeURIComponent(cityName)}`
       );
-      updateWeather(res.data, cityName);
+      const data = res.data;
+      updateWeather(data, cityName);
       setCity('');
       setShowSuggestions(false);
     } catch (err) {
       setError('City not found or API error');
     }
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,27 +1,25 @@
-import React from 'react';
-import { WeatherProvider } from './context/WeatherContext';
-import { ThemeProvider } from './context/ThemeContext';
-import CitySearch from './components/CitySearch';
-import WeatherCard from './components/WeatherCard';
-import OutfitSuggestion from './components/OutfitSuggestion';
-import SearchHistory from './components/SearchHistory';
-import ThemeToggle from './components/ThemeToggle';
+import React from "react";
+import MainLayout from "./components/Layout/MainLayout";
+import CitySearch from "./components/CitySearch";
+import WeatherCard from "./components/WeatherCard";
+import OutfitSuggestion from "./components/OutfitSuggestion";
+import SearchHistory from "./components/SearchHistory";
+import { WeatherProvider } from "./context/WeatherContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
-const App = () => {
+function App() {
   return (
     <ThemeProvider>
       <WeatherProvider>
-        <main className="app-container">
-          <h1>Weather-Based Outfit Recommender</h1>
-          <ThemeToggle />
+        <MainLayout>
           <CitySearch />
-          <SearchHistory />
           <WeatherCard />
           <OutfitSuggestion />
-        </main>
+          <SearchHistory />
+        </MainLayout>
       </WeatherProvider>
     </ThemeProvider>
   );
-};
+}
 
 export default App;
